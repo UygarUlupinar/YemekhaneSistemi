@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemekhane Sistemi - Siparişlerim</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="menu.html">Yemekhane Sistemi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menü</a></li>
+                <li class="nav-item"><a class="nav-link active fw-bold" href="siparislerim.html">Siparişlerim</a></li>
+                <li class="nav-item"><a class="nav-link" href="durum.html">Canlı Durum</a></li>
+                <li class="nav-item"><a class="nav-link" href="bakiye.html">Bakiye Yükle</a></li>
+            </ul>
+            <div class="d-flex align-items-center mt-2 mt-lg-0">
+                <span class="text-white-50 me-3 fw-medium" id="navbarKullaniciAd"></span>
+                <span class="text-white me-3 fw-medium" id="navbarBakiye">Bakiye: Yükleniyor...</span>
+                <a href="login.html" class="btn btn-outline-light btn-sm">Çıkış Yap</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold text-dark">Aktif Siparişlerim</h2>
+            <p class="text-muted">Yaklaşan yemek siparişlerinizi buradan takip edebilir, süresi dolmayanları iptal edebilirsiniz.</p>
+            
+            <div id="iptalBasariMesaji" class="alert alert-success d-none" role="alert"></div>
+        </div>
+    </div>
+
+    <div class="row g-4" id="siparisListesiContainer">
+        </div>
+</div>
+
+<div class="modal fade" id="iptalModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Siparişi İptal Et</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong><span id="iptalTarih"></span></strong> tarihli siparişinizi iptal etmek istediğinize emin misiniz?</p>
+                <p class="text-muted small mb-0">İptal işlemi onaylandığında 45.00 TL bakiyenize anında iade edilecektir.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="button" class="btn btn-danger" id="btnIptaliOnayla">Evet, İptal Et</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="siparislerim.js"></script>
+</body>
+</html>

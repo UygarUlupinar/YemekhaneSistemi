@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Rapor ve Analiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="admin-menu.html">Yemekhane ADMIN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNavbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="admin-menu.html">Menü Yönetimi</a></li>
+                <li class="nav-item"><a class="nav-link active fw-bold" href="admin-rapor.html">Raporlar</a></li>
+                <li class="nav-item"><a class="nav-link" href="gorevli.html">Mutfak Paneli</a></li>
+            </ul>
+            <div class="d-flex align-items-center mt-2 mt-lg-0">
+                <span class="text-white me-3 small">Hoş Geldiniz, Admin</span>
+                <a href="login.html" class="btn btn-outline-light btn-sm">Çıkış Yap</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid py-4 px-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h3 class="fw-bold text-dark">Gelir ve İstatistik Analizi</h3>
+            <p class="text-muted small">Günlük sipariş özetleri ve haftalık gelir grafikleri.</p>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-0 bg-primary text-white h-100 rounded-3">
+                <div class="card-body">
+                    <h6 class="text-white-50">Bugünkü Toplam Gelir</h6>
+                    <h3 class="fw-bold mb-0" id="gunlukGelir">-- TL</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-0 bg-success text-white h-100 rounded-3">
+                <div class="card-body">
+                    <h6 class="text-white-50">Tamamlanan Sipariş</h6>
+                    <h3 class="fw-bold mb-0" id="tamamlananSiparis">--</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-0 bg-danger text-white h-100 rounded-3">
+                <div class="card-body">
+                    <h6 class="text-white-50">İptal Edilen Sipariş</h6>
+                    <h3 class="fw-bold mb-0" id="iptalSiparis">--</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-0 bg-warning text-dark h-100 rounded-3">
+                <div class="card-body">
+                    <h6 class="text-dark-50">En Popüler Menü</h6>
+                    <h5 class="fw-bold mb-0 mt-1" id="populerMenu">Yükleniyor...</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow-sm border-0 rounded-3 h-100">
+                <div class="card-header bg-white fw-bold py-3">Haftalık Gelir Grafiği</div>
+                <div class="card-body">
+                    <canvas id="gelirGrafigi"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-3 h-100">
+                <div class="card-header bg-white fw-bold py-3">Son Sipariş Hareketleri</div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush" id="sonIslemler">
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin-rapor.js"></script>
+</body>
+</html>

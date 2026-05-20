@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemekhane Sistemi - Bakiye Yükle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="menu.html">Yemekhane Sistemi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menü</a></li>
+                <li class="nav-item"><a class="nav-link" href="siparislerim.html">Siparişlerim</a></li>
+                <li class="nav-item"><a class="nav-link" href="durum.html">Canlı Durum</a></li>
+                <li class="nav-item"><a class="nav-link active fw-bold" href="bakiye.html">Bakiye Yükle</a></li>
+            </ul>
+            <div class="d-flex align-items-center mt-2 mt-lg-0">
+                <span class="text-white-50 me-3 fw-medium" id="navbarKullaniciAd"></span>
+                <span class="text-white me-3 fw-medium" id="navbarBakiye">Bakiye: Yükleniyor...</span>
+                <a href="login.html" class="btn btn-outline-light btn-sm">Çıkış Yap</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">Bakiye Yükle</h2>
+                <p class="text-muted">Kredi veya banka kartınızla güvenle bakiye ekleyebilirsiniz.</p>
+            </div>
+
+            <div id="odemeBasariMesaji" class="alert alert-success d-none text-center fw-medium" role="alert"></div>
+
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body p-4 p-md-5">
+                    <form id="odemeFormu">
+                        
+                        <h6 class="fw-bold mb-3">Yüklenecek Tutar</h6>
+                        <div class="d-flex gap-2 mb-3">
+                            <button type="button" class="btn btn-outline-primary flex-fill tutar-sec" data-tutar="50">50 TL</button>
+                            <button type="button" class="btn btn-outline-primary flex-fill tutar-sec" data-tutar="100">100 TL</button>
+                            <button type="button" class="btn btn-outline-primary flex-fill tutar-sec" data-tutar="200">200 TL</button>
+                        </div>
+                        
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">₺</span>
+                            <input type="number" class="form-control form-control-lg" id="yuklenecekTutar" placeholder="Diğer tutar giriniz" required min="10">
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Kart Bilgileri</h6>
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Kart Üzerindeki İsim</label>
+                            <input type="text" class="form-control" id="kartIsim" required placeholder="AD SOYAD">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">Kart Numarası</label>
+                            <input type="text" class="form-control" id="kartNo" required placeholder="0000 0000 0000 0000" maxlength="19">
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <label class="form-label text-muted small">Son Kullanma (AA/YY)</label>
+                                <input type="text" class="form-control" id="skt" required placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label text-muted small">CVV</label>
+                                <input type="password" class="form-control" id="cvv" required placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-3 fw-bold" id="btnOdemeYap">
+                            <span id="btnOdemeYazi">Ödemeyi Tamamla</span>
+                            <div class="spinner-border spinner-border-sm text-light d-none" id="odemeSpinner" role="status"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="bakiye.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+// Örnek Menü Verisi (İleride Backend'den API ile çekilecek)
+const haftalikMenu = [
+    {
+        tarih: "13 Mayıs Pazartesi",
+        corba: "Mercimek Çorbası",
+        anaYemek: "Orman Kebabı",
+        yardimciYemek: "Pirinç Pilavı",
+        tatli: "Kemalpaşa Tatlısı",
+        kalori: "850 kcal"
+    },
+    {
+        tarih: "14 Mayıs Salı",
+        corba: "Ezogelin Çorbası",
+        anaYemek: "Fırın Tavuk",
+        yardimciYemek: "Bulgur Pilavı",
+        tatli: "Mevsim Salata",
+        kalori: "720 kcal"
+    },
+    {
+        tarih: "15 Mayıs Çarşamba",
+        corba: "Tarhana Çorbası",
+        anaYemek: "Kuru Fasulye",
+        yardimciYemek: "Şehriyeli Pirinç Pilavı",
+        tatli: "Cacık",
+        kalori: "810 kcal"
+    },
+    {
+        tarih: "16 Mayıs Perşembe",
+        corba: "Yayla Çorbası",
+        anaYemek: "İzmir Köfte",
+        yardimciYemek: "Spagetti Napoliten",
+        tatli: "Meyve (Elma)",
+        kalori: "790 kcal"
+    },
+    {
+        tarih: "17 Mayıs Cuma",
+        corba: "Domates Çorbası",
+        anaYemek: "Etli Nohut",
+        yardimciYemek: "Tereyağlı Pilav",
+        tatli: "Sütlaç",
+        kalori: "880 kcal"
+    }
+];
+
+// Sayfa yüklendiğinde menüyü ekrana bas
+document.addEventListener('DOMContentLoaded', () => {
+    const menuContainer = document.getElementById('menuContainer');
+
+    haftalikMenu.forEach(gun => {
+        // Bootstrap kart yapısı
+        const cardCol = document.createElement('div');
+        cardCol.className = 'col-md-6 col-lg-4';
+
+        cardCol.innerHTML = `
+            <div class="card h-100 shadow-sm border-0 rounded-3">
+                <div class="card-header bg-white border-bottom-0 pt-4 pb-0 text-center">
+                    <h5 class="card-title fw-bold text-primary">${gun.tarih}</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>🥣 Çorba</span> <strong>${gun.corba}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>🥩 Ana Yemek</span> <strong>${gun.anaYemek}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>🍚 Yardımcı</span> <strong>${gun.yardimciYemek}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>🍮 Tatlı/Salata</span> <strong>${gun.tatli}</strong>
+                        </li>
+                    </ul>
+                    <div class="text-center text-muted small mb-3">
+                        Toplam: <span class="fw-semibold">${gun.kalori}</span>
+                    </div>
+                    <button class="btn btn-success w-100 fw-medium siparis-btn">
+                        Sipariş Ver
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        menuContainer.appendChild(cardCol);
+    });
+
+    // İleride Sipariş butonlarına tıklama olayını yakalamak için
+    const siparisButonlari = document.querySelectorAll('.siparis-btn');
+    siparisButonlari.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Şimdilik sadece uyarı veriyoruz, UC-04'te detaylandıracağız
+            alert("Sipariş verme ekranına (UC-04) yönlendirilecek.");
+        });
+    });
+});

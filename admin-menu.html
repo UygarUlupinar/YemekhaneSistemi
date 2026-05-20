@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Menü Yönetimi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="admin-menu.html">Yemekhane ADMIN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNavbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active fw-bold" href="admin-menu.html">Menü Yönetimi</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-rapor.html">Raporlar</a></li>
+                <li class="nav-item"><a class="nav-link" href="gorevli.html">Mutfak Paneli</a></li>
+            </ul>
+            <div class="d-flex align-items-center mt-2 mt-lg-0">
+                <span class="text-white me-3 small">Hoş Geldiniz, Admin</span>
+                <a href="login.html" class="btn btn-outline-light btn-sm">Çıkış Yap</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid py-4 px-4">
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white fw-bold">
+                    Yeni Menü Ekle
+                </div>
+                <div class="card-body">
+                    <form id="menuEkleForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Tarih</label>
+                            <input type="date" class="form-control" id="menuTarih" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Çorba</label>
+                            <input type="text" class="form-control" id="menuCorba" required placeholder="Örn: Mercimek">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Ana Yemek</label>
+                            <input type="text" class="form-control" id="menuAnaYemek" required placeholder="Örn: Orman Kebabı">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Yardımcı Yemek</label>
+                            <input type="text" class="form-control" id="menuYardimci" required placeholder="Örn: Pirinç Pilavı">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Tatlı / Salata</label>
+                            <input type="text" class="form-control" id="menuTatli" required placeholder="Örn: Kemalpaşa">
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <label class="form-label fw-medium small">Toplam Kalori</label>
+                                <input type="number" class="form-control" id="menuKalori" required placeholder="Örn: 850">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-medium small">Menü Ücreti (TL)</label>
+                                <input type="number" class="form-control" id="menuUcret" required placeholder="Örn: 45">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 fw-bold">Menüyü Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-white fw-bold text-dark d-flex justify-content-between align-items-center">
+                    <span>Sistemdeki Menüler</span>
+                    <span class="badge bg-secondary" id="toplamMenuSayisi">Toplam: 0</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Tarih</th>
+                                    <th>Menü İçeriği</th>
+                                    <th>Kalori / Detay</th>
+                                    <th>Fiyat</th>
+                                    <th class="text-end">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="menuTabloGövdesi">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin-menu.js"></script>
+</body>
+</html>
